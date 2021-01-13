@@ -1,0 +1,39 @@
+{% load static %}
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>{% block title %} {% endblock %}</title>
+    <meta name="description" content="A simple todo application">
+    <meta name="author" content="Borix102">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://use.fontawesome.com/ff4cdc07b5.js"></script>
+    <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+</head>
+
+<body class="d-flex flex-column h-100">
+
+    <nav class="navbar navbar-light bg-dark mb-5">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1 text-warning">Todo Application</span>
+        </div>
+    </nav>
+
+    {% block content %} {% endblock %}
+
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="container">
+            <span class="text-muted">&copy; Copyright 2021 <b>@Borix102</b>, All right reserved.</span>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

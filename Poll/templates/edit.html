@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% load static %} {% block title %} Todo App {% endblock %} {% block content %}
+
+
+
+<main class="container flex-shrink-0">
+
+    <nav class="navbar navbar-light bg-light mb-5">
+        <div class="container-fluid">
+            <a href='/'><b class='fa fa-arrow-left fa-3x'></b></a>
+            <form class="d-flex">
+                <span class="pb-2 mb-4 h4">Task: <b class='text-primary'>{{ task.label }}</b></span>
+            </form>
+        </div>
+    </nav>
+
+    <form class="row g-3" method="POST">
+        {% csrf_token %}
+        <div class="input-group mb-3">
+            <input type="text" value='{{ task.label }}' name="label" maxlength="256" class="form-control" placeholder="What will you do today" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button class="btn btn-primary" type="submit" id="button-addon2">Update task</button>
+        </div>
+    </form>
+
+    <br/> Created on <i class='text-secondary'>{{ task.created }}</i>
+
+    <br/><br/><br/>
+
+</main>
+{% endblock %}

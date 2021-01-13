@@ -1,0 +1,43 @@
+{% extends "base.html" %} {% load static %} {% block title %} Todo App {% endblock %} {% block content %}
+<main class="container flex-shrink-0">
+
+    <form class="row g-3" method="POST">
+        {% csrf_token %}
+        <div class="input-group mb-3">
+            <input type="text" name="label" maxlength="256" class="form-control" placeholder="What will you do today" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button class="btn btn-primary" type="submit" id="button-addon2">Add task</button>
+        </div>
+    </form>
+
+    <div class="my-5 p-3 bg-white rounded">
+        <h6 class="pb-2 mb-4 h4">My Tasks</h6>
+
+        <div class="list-group">
+            {% if task %} {% for t in task %}
+            <div class="list-group-item">
+                <div class="row">
+                    <div class="col">
+                        <input class="form-check-input me-1" type="checkbox" value=""> <b><a style="text-decoration: none;" href="{% url 'edit' t.id %}">{{ t.label }}</a></b>
+                    </div>
+                    <div class="col-1">
+                        <form method="POST" action="{% url 'delete' t.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn-close" aria-label="Close"></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% endfor %} {% else %}
+            <div class="list-group-item">
+                <div class="row">
+                    <div class="col">
+                        <center>No task saved</center>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+    </div>
+</main>
+{% endblock %}
